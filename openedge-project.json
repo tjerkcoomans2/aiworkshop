@@ -14,11 +14,11 @@
     },
     {
       "type": "propath",
-      "path": "${DLC}\/bin"
+      "path": "${DLC}"
     },
     {
       "type": "propath",
-      "path": "${DLC}"
+      "path": "${DLC}\/bin"
     },
     {
       "type": "propath",
