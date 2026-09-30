@@ -1,15 +1,16 @@
 /*------------------------------------------------------------------------
   File        : EntityFactory
   Purpose     : Factory for creating singleton instances of business entities
-  Syntax      : 
+  Syntax      : EntityFactory:GetInstance():Get<Entity>Entity()
   Description : Implements the Singleton pattern for business entity classes
-  Author(s)   : 
+  Author(s)   : Tjerk Coomans
   Created     : Tue Apr 15 12:01:20 CEST 2025
-  Notes       : 
+  Notes       : Call ResetInstances() to delete the cached entities
 ----------------------------------------------------------------------*/
 
 USING Progress.Lang.*.
 USING business.CustomerEntity.
+USING business.ItemEntity.
 USING business.EntityFactory.
 
 BLOCK-LEVEL ON ERROR UNDO, THROW.
@@ -21,6 +22,7 @@ CLASS business.EntityFactory USE-WIDGET-POOL:
     
     /* Singleton instances of business entities */
     VAR PRIVATE CustomerEntity objCustomerEntityInstance.
+    VAR PRIVATE ItemEntity objItemEntityInstance.
     
     /*------------------------------------------------------------------------------
      Purpose: Private constructor to prevent direct instantiation
@@ -51,6 +53,17 @@ CLASS business.EntityFactory USE-WIDGET-POOL:
         
         RETURN objCustomerEntityInstance.
     END METHOD.
+    
+    /*------------------------------------------------------------------------------
+     Purpose: Get the singleton instance of ItemEntity
+     Notes:
+    ------------------------------------------------------------------------------*/
+    METHOD PUBLIC ItemEntity GetItemEntity():
+        IF objItemEntityInstance = ? THEN
+            objItemEntityInstance = NEW ItemEntity().
+        
+        RETURN objItemEntityInstance.
+    END METHOD.
         
     /*------------------------------------------------------------------------------
      Purpose: Reset all entity instances (for testing or cleanup)
@@ -61,6 +74,11 @@ CLASS business.EntityFactory USE-WIDGET-POOL:
             DELETE OBJECT objCustomerEntityInstance.
         
         objCustomerEntityInstance = ?.    
+        
+        IF VALID-OBJECT(objItemEntityInstance) THEN
+            DELETE OBJECT objItemEntityInstance.
+        
+        objItemEntityInstance = ?.
     END METHOD.
     
 END CLASS.
