@@ -1,11 +1,14 @@
 /*------------------------------------------------------------------------
   File        : ItemDataset.i
   Purpose     : Dataset definition for Item entity
-  Syntax      : 
-  Description : 
-  Author(s)   : 
+  Syntax      : {business/ItemDataset.i}
+  Description : Defines the ttItem temp-table (with before-table bttItem
+                for change tracking) and the dsItem dataset, shared by
+                business.ItemEntity and the UI that uses it
+  Author(s)   : Tjerk Coomans
   Created     : Wed Sep 30 2026
-  Notes       : 
+  Notes       : Field names match the Item database table so the
+                data-source maps them automatically
 ----------------------------------------------------------------------*/
 
 /* Define temp-table for Item */

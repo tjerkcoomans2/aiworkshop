@@ -1,11 +1,13 @@
 /*------------------------------------------------------------------------
   File        : ItemEntity
   Purpose     : Business Entity for Item data access
-  Syntax      : 
-  Description : 
-  Author(s)   : 
+  Syntax      : EntityFactory:GetInstance():GetItemEntity()
+  Description : Reads, validates and updates Item records through the
+                dsItem dataset
+  Author(s)   : Tjerk Coomans
   Created     : Wed Sep 30 2026
-  Notes       : 
+  Notes       : Obtain instances through business.EntityFactory instead
+                of NEW
 ----------------------------------------------------------------------*/
 
 USING Progress.Lang.*.

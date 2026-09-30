@@ -1,11 +1,11 @@
 /*------------------------------------------------------------------------
   File        : EntityFactory
   Purpose     : Factory for creating singleton instances of business entities
-  Syntax      : 
+  Syntax      : EntityFactory:GetInstance():Get<Entity>Entity()
   Description : Implements the Singleton pattern for business entity classes
-  Author(s)   : 
+  Author(s)   : Tjerk Coomans
   Created     : Tue Apr 15 12:01:20 CEST 2025
-  Notes       : 
+  Notes       : Call ResetInstances() to delete the cached entities
 ----------------------------------------------------------------------*/
 
 USING Progress.Lang.*.
