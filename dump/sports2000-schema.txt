@@ -1,0 +1,105 @@
+sports2000 schema summary
+=========================
+
+Generated from dump/sports2000.df (OpenEdge 12.8 sports2000 demo database).
+Logical name in this project: sp2k (alias: sports).
+Tables: 25
+
+TABLE Benefits
+  Primary index: EmpNo (EmpNum)
+  Fields: EmpNum (integer), HealthCare (character), LifeInsurance (integer), Pension401K (integer), StockPurchase (integer), MedicalSpending (integer), DependentCare (integer)
+
+TABLE BillTo
+  Primary index: custnumbillto (CustNum, BillToID)
+  Fields: CustNum (integer), BillToID (integer), Name (character), Address (character), Address2 (character), City (character), State (character), PostalCode (character), Contact (character), Phone (character)
+
+TABLE Bin
+  Primary index: BinNum (BinNum)
+  Fields: WarehouseNum (integer), Itemnum (integer), Qty (integer), BinNum (integer), BinName (character)
+
+TABLE Customer
+  Primary index: CustNum (CustNum)
+  Fields: CustNum (integer), Name (character), Address (character), Address2 (character), City (character), State (character), Country (character), Phone (character), Contact (character), SalesRep (character), Comments (character), CreditLimit (decimal), Balance (decimal), Terms (character), Discount (integer), PostalCode (character), Fax (character), EmailAddress (character)
+
+TABLE Department
+  Primary index: DeptCode (DeptCode)
+  Fields: DeptCode (character), DeptName (character)
+
+TABLE Employee
+  Primary index: EmpNo (EmpNum)
+  Fields: LastName (character), FirstName (character), Address (character), Address2 (character), City (character), State (character), PostalCode (character), DeptCode (character), Position (character), HomePhone (character), WorkPhone (character), VacationDaysLeft (integer), SickDaysLeft (integer), EmpNum (integer), StartDate (date), Birthdate (date)
+
+TABLE Family
+  Primary index: EmpNoRelativeName (EmpNum, RelativeName)
+  Fields: RelativeName (character), Relation (character), Birthdate (date), BenefitDate (date), CoveredOnBenefits (logical), EmpNum (integer)
+
+TABLE Feedback
+  Primary index: Department (Department)
+  Fields: Contact (character), Company (character), EmailAddress (character), Phone (character), Fax (character), Comments (character), Department (character), Rating (integer)
+
+TABLE InventoryTrans
+  Fields: InvTransNum (integer), WarehouseNum (integer), BinNum (integer), Qty (integer), Itemnum (integer), TransDate (date), InvType (character), PONum (integer), Ordernum (integer), Transtime (character)
+
+TABLE Invoice
+  Primary index: InvoiceNum (Invoicenum)
+  Fields: Invoicenum (integer), CustNum (integer), InvoiceDate (date), Amount (decimal), TotalPaid (decimal), Adjustment (decimal), OrderNum (integer), ShipCharge (decimal)
+
+TABLE Item
+  Primary index: ItemNum (Itemnum)
+  Fields: Itemnum (integer), ItemName (character), CatPage (integer), Price (decimal), CatDescription (character), Onhand (integer), Allocated (integer), ReOrder (integer), OnOrder (integer), Category1 (character), Category2 (character), Special (character), Weight (decimal), Minqty (integer)
+
+TABLE LocalDefault
+  Primary index: localdefnum (LocalDefNum)
+  Fields: Country (character), Region1Label (character), Region2Label (character), PostalLabel (character), PostalFormat (character), TelFormat (character), DateFormat (character), CurrencySymbol (character), LocalDefNum (integer)
+
+TABLE Order
+  Primary index: OrderNum (Ordernum)
+  Fields: Ordernum (integer), CustNum (integer), OrderDate (date), ShipDate (date), PromiseDate (date), Carrier (character), Instructions (character), PO (character), Terms (character), SalesRep (character), BillToID (integer), ShipToID (integer), OrderStatus (character), WarehouseNum (integer), Creditcard (character)
+
+TABLE OrderLine
+  Primary index: orderline (Ordernum, Linenum)
+  Fields: Ordernum (integer), Linenum (integer), Itemnum (integer), Price (decimal), Qty (integer), Discount (integer), ExtendedPrice (decimal), OrderLineStatus (character)
+
+TABLE POLine
+  Primary index: PONumLinenum (PONum, Linenum)
+  Fields: Linenum (integer), Itemnum (integer), Price (decimal), Qty (integer), Discount (integer), ExtendedPrice (decimal), PONum (integer), POLineStatus (character)
+
+TABLE PurchaseOrder
+  Primary index: PONum (PONum)
+  Fields: PONum (integer), DateEntered (date), SupplierIDNum (integer), ReceiveDate (date), POStatus (character)
+
+TABLE RefCall
+  Primary index: CallNum (CallNum)
+  Fields: CallNum (character), CustNum (integer), CallDate (date), SalesRep (character), Parent (character), Txt (character)
+
+TABLE Salesrep
+  Primary index: SalesRep (SalesRep)
+  Fields: RepName (character), Region (character), SalesRep (character), MonthQuota (integer)
+
+TABLE ShipTo
+  Primary index: custnumshipto (CustNum, ShipToID)
+  Fields: CustNum (integer), ShipToID (integer), Contact (character), Address (character), Address2 (character), City (character), State (character), PostalCode (character), Phone (character), Comments (character), Name (character)
+
+TABLE State
+  Primary index: State (State)
+  Fields: State (character), StateName (character), Region (character)
+
+TABLE Supplier
+  Primary index: SupplierID (SupplierIDNum)
+  Fields: SupplierIDNum (integer), Name (character), Address (character), Address2 (character), City (character), State (character), Country (character), Phone (character), Password (character), LoginDate (date), Comments (character), ShipAmount (integer), PostalCode (character), Discount (integer)
+
+TABLE SupplierItemXref
+  Primary index: SupplieridItemNum (SupplierIDNum, Itemnum)
+  Fields: SupplierIDNum (integer), Itemnum (integer)
+
+TABLE TimeSheet
+  Primary index: EmpNoDayRecorded (EmpNum, DayRecorded)
+  Fields: EmpNum (integer), DayRecorded (date), TypeRecorded (character), AMTimeIn (character), AMTimeOut (character), PMTimeIn (character), PMTimeOut (character), RegularHours (decimal), OvertimeHours (decimal)
+
+TABLE Vacation
+  Primary index: EmpNoStartDate (EmpNum, StartDate)
+  Fields: EmpNum (integer), StartDate (date), EndDate (date)
+
+TABLE Warehouse
+  Primary index: warehousenum (WarehouseNum)
+  Fields: WarehouseNum (integer), WarehouseName (character), Country (character), Address (character), Address2 (character), City (character), State (character), PostalCode (character), Phone (character)
